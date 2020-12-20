@@ -147,8 +147,11 @@
   <ItemGroup>
     <ClInclude Include="Contact.h" />
     <ClInclude Include="ContType.h" />
+    <ClInclude Include="ContTypeCol.h" />
     <ClInclude Include="Firm.h" />
+    <ClInclude Include="FirmFactory.h" />
     <ClInclude Include="SbFirmType.h" />
+    <ClInclude Include="SbFirmTypeCol.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="SubFirm.h" />
     <ClInclude Include="targetver.h" />
@@ -156,9 +159,12 @@
   <ItemGroup>
     <ClCompile Include="Contact.cpp" />
     <ClCompile Include="ContType.cpp" />
+    <ClCompile Include="ContTypeCol.cpp" />
     <ClCompile Include="Firm.cpp" />
+    <ClCompile Include="FirmFactory.cpp" />
     <ClCompile Include="laba1-2.cpp" />
     <ClCompile Include="SbFirmType.cpp" />
+    <ClCompile Include="SbFirmTypeCol.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

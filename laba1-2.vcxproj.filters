@@ -39,6 +39,15 @@
     <ClInclude Include="ContType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FirmFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ContTypeCol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SbFirmTypeCol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -60,6 +69,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ContType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FirmFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ContTypeCol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SbFirmTypeCol.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
