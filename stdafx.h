@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <tchar.h>
 
-
+#include "SubFirm.h"
+#include "Firm.h"
 
 // TODO: reference additional headers your program requires here
