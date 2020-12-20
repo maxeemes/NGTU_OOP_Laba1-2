@@ -22,8 +22,9 @@ public:
 	string RenameField(string OldName, string NewName);//Переименоавание поля
 	string GetMain();//Выввод основной информациии о фирме
 
+	//наполнить класс SubFirm
 	bool AddSbFirm();
-	//создать класс Contact
+	//наполнить класс Contact
 	bool AddCont();
 	bool ExistContact();
 	bool AddContToSbFirm();

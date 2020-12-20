@@ -2,11 +2,11 @@
 #include "SbFirmType.h"
 
 
-SubFirm::SubFirm()
+SbFirmType::SbFirmType()
 {
 }
 
 
-SubFirm::~SubFirm()
+SbFirmType::~SbFirmType()
 {
 }
