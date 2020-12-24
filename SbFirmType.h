@@ -3,11 +3,9 @@ class SbFirmType
 {
 public:
 	SbFirmType();
+	SbFirmType(string _name, bool _isMain = false);
 	~SbFirmType();
-	bool IsMain;
-	bool Name;
-private:
-	bool _isMain;
-	string _name;
+	bool IsMain = false;
+	string Name;
 };
 

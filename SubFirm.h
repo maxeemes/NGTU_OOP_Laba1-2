@@ -2,29 +2,23 @@
 class SubFirm
 {
 public:
+	string Name;
+	string OfcBossName;
 	string BossName;
 	string Email;
-	string Name;
 	string Tel;
-	string OfcBossName;
-	bool IsMain;
-	int CountCont;
 	SbFirmType FirmTpy;
+	list <Contact> Conts;
 
-	bool AddContact(Contact Cont);
-	bool ExistContact(Contact Cont);
-	string IsYourType();
+	string GetMain();//Вывод основной информации об суб-фирме
+	string IsYourType();// возвращает тип суб-фирмы
+	bool AddContact(Contact _cont);
+	bool ExistContact(Contact _cont);
+	int GetCountCont();
 
-	SubFirm();
+	//SubFirm();
+	SubFirm(string _name);
+	SubFirm(string _name, string _ofcBossName, string _bossName, string _email, string _tel, string _sbFirmType = "Суб-фирма", bool _sbFirmIsMain = false);
 	~SubFirm();
-private:
-	string _bossName;
-	string _email;
-	string _name;
-	string _ofcBossName;
-	string _tel;
-	Contact *_conts;
-	SbFirmType _tpy;
-
 };
 

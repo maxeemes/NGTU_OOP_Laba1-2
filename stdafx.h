@@ -11,11 +11,21 @@
 #include <tchar.h>
 #include <string>
 #include <list>
+#include <map>
+#include <iterator>
 #include <ctime>
 
-#include "SubFirm.h"
 #include "Firm.h"
+
+#include "SubFirm.h"
+#include "SbFirmType.h"
+
 #include "Contact.h"
+#include "ContType.h"
+
+#include "ContTypeCol.h"
+#include "SbFirmTypeCol.h"
+
 
 #define _CRT_SECURE_NO_WARNINGS 1
 using namespace std;

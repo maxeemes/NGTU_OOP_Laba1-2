@@ -1,11 +1,13 @@
 #include "stdafx.h"
-#include "SbFirmType.h"
 
 
-SbFirmType::SbFirmType()
+SbFirmType::SbFirmType(): Name("Суб-фирма"), IsMain(false)
 {
 }
 
+SbFirmType::SbFirmType(string _name, bool _isMain) : Name(_name), IsMain(_isMain)
+{
+}
 
 SbFirmType::~SbFirmType()
 {

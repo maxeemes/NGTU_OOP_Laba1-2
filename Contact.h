@@ -2,21 +2,16 @@
 class Contact
 {
 public:
-	string BeginDt;
-	ContType CntType;
 	string DataInfo;
 	string Descr;
+	ContType CntType;
+	string BeginDt;
 	string EndDt;
 
 	Contact();
+	Contact(string _dateInfo, string _descr = "", string _type = "Контакт", string _beginDt = "Текущее время", string _endDate = "Текущее время");
 	~Contact();
-	Contact Clone(Contact Cont);
-private:
-	string _beginDt;
-	string _dataInfo;
-	string _descr;
-	string _endDt;
-
+	bool Clone(Contact Cont);
 	bool operator!=(Contact Ref);
 	bool operator==(Contact Ref);
 };
