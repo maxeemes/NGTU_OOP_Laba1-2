@@ -15,20 +15,22 @@
 #include <iterator>
 #include <ctime>
 
+#include "ContType.h"
+#include "Contact.h"
+
+#include "SbFirmType.h"
+#include "SubFirm.h"
+
+
 #include "Firm.h"
 
-#include "SubFirm.h"
-#include "SbFirmType.h"
-
-#include "Contact.h"
-#include "ContType.h"
 
 #include "ContTypeCol.h"
 #include "SbFirmTypeCol.h"
 
 
 #define _CRT_SECURE_NO_WARNINGS 1
-using namespace std;
+
 
 
 // TODO: reference additional headers your program requires here

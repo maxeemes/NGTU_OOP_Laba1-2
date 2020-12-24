@@ -10,18 +10,19 @@ Contact::Contact()
 	time(&Date);
 	char timebuf[26];
 	ctime_s(timebuf, 26, &Date);
-	BeginDt = Date;
-	EndDt = Date;
+	BeginDt = timebuf[26];
+	EndDt = timebuf[26];
 }
 
-Contact::Contact(string _dateInfo, string _descr, string _type, string _beginDt, string _endDt) : Contact()
+Contact::Contact(string _dateInfo, string _descr, ContType _CntType, string _beginDt, string _endDate)
 {
 	DataInfo = _dateInfo;
 	Descr = _descr;
-	if (_type != "Контакт") CntType = ContType(_type);
+	if (_CntType.Name != "Контакт") CntType = CntType;
 	if (_beginDt != "Текущее время") BeginDt = _beginDt;
-	if (_endDt != "Текущее время") EndDt = _endDt;
+	if (_endDate != "Текущее время") EndDt = _endDate;
 }
+
 
 
 Contact::~Contact()

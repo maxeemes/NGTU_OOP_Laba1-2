@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "SubFirm.h"
 
 Firm::Firm()
 {
@@ -92,10 +93,10 @@ string Firm::GetMain()
 
 bool Firm::AddSbFirm(string _name, string _ofcBossName, string _bossName, string _email, string _tel, string _sbFirmType, bool _sbFirmIsMain)
 {
-	if (_name.length() > 0 && ExistSbFirm(_name) == false)
+	if (_name.length() > 0 && (SbFirms.empty() || GetSbFirm(_name) != SbFirms.end()))
 	{
 		SubFirm NewSbFirm = SubFirm(_name);
-		if (_ofcBossName.length > 0 || _bossName.length() > 0 || _email.length() > 0 || _tel.length() || _sbFirmType != "Суб-фирма" || _sbFirmIsMain != false)
+		if (_ofcBossName.length() > 0 || _bossName.length() > 0 || _email.length() > 0 || _tel.length() || _sbFirmType != "Суб-фирма" || _sbFirmIsMain != false)
 		{
 			NewSbFirm = SubFirm(_name, _ofcBossName, _bossName, _email, _tel, _sbFirmType, _sbFirmIsMain);
 		}

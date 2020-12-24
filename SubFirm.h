@@ -1,4 +1,6 @@
 #pragma once
+using namespace std;
+class SbFirmType;
 class SubFirm
 {
 public:
@@ -16,7 +18,7 @@ public:
 	bool ExistContact(Contact _cont);
 	int GetCountCont();
 
-	//SubFirm();
+	SubFirm();
 	SubFirm(string _name);
 	SubFirm(string _name, string _ofcBossName, string _bossName, string _email, string _tel, string _sbFirmType = "Суб-фирма", bool _sbFirmIsMain = false);
 	~SubFirm();

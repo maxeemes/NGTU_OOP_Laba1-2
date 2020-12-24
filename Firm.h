@@ -1,5 +1,7 @@
 #pragma once
-
+using namespace std;
+class SubFirm;
+class Contact;
 class Firm
 {
 public:
@@ -12,10 +14,9 @@ public:
 	string PostInx;
 	string Country;
 	string DateIn;
-	list <SubFirm> SbFirms;
+	list<SubFirm> SbFirms;
 
 	Firm();
-	Firm(string _name);
 	Firm(string _name, string _country = "Россия", string _dateIn = "Текущая дата", string _email = "", string  _web = "", string _region = "", string _town = "", string _street = "", string _postInx = "");
 	~Firm();
 

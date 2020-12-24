@@ -41,6 +41,10 @@ int SubFirm::GetCountCont()
 }
 
 
+SubFirm::SubFirm() : Name("Суб-фирма")
+{
+}
+
 SubFirm::SubFirm(string _name) : Name(_name), FirmTpy(SbFirmType())
 {
 }

@@ -1,4 +1,6 @@
 #pragma once
+using namespace std;
+class ContType;
 class Contact
 {
 public:
@@ -9,7 +11,7 @@ public:
 	string EndDt;
 
 	Contact();
-	Contact(string _dateInfo, string _descr = "", string _type = "Контакт", string _beginDt = "Текущее время", string _endDate = "Текущее время");
+	Contact(string _dateInfo, string _descr = "", ContType _CntType = ContType("Контакт"), string _beginDt = "Текущее время", string _endDate = "Текущее время");
 	~Contact();
 	bool Clone(Contact Cont);
 	bool operator!=(Contact Ref);

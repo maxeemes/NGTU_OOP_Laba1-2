@@ -2,15 +2,13 @@
 class ContTypeCol
 {
 public:
-	int Count;
-
-	bool Add(ContType Type);
+	bool Add(ContType _type);
 	bool Clear();
-	ContType GetContType(string TypeName);
+	ContType GetContType(string _typeName);
+
 	ContTypeCol();
 	~ContTypeCol();
 private:
-	list <ContType> _lst;
-
+	list <ContType> ContTypes;
 };
 
