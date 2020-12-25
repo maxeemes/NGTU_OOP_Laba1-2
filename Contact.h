@@ -1,6 +1,6 @@
 #pragma once
 using namespace std;
-class ContType;
+//class ContType;
 class Contact
 {
 public:

@@ -1,7 +1,7 @@
 #pragma once
 using namespace std;
-class SubFirm;
-class Contact;
+//class SubFirm;
+//class Contact;
 class Firm
 {
 public:
@@ -18,7 +18,8 @@ public:
 
 	Firm();
 	Firm(string _name, string _country = "Россия", string _dateIn = "Текущая дата", string _email = "", string  _web = "", string _region = "", string _town = "", string _street = "", string _postInx = "");
-	~Firm();
+	//~Firm();
+	~Firm(void);
 
 	bool AddField(string Name, string Value = "");//Добавить поле
 	string GetField(string Name);//Полуить значение поля

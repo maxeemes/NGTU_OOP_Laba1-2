@@ -1,6 +1,6 @@
 #pragma once
 using namespace std;
-class SbFirmType;
+//class SbFirmType;
 class SubFirm
 {
 public:

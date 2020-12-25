@@ -1,9 +1,8 @@
 #include "stdafx.h"
 #include "SubFirm.h"
 
-Firm::Firm()
+Firm::Firm(): Name("Фирма"), Country("Россия")
 {
-	Country = "Россия";
 	time_t _dateIn;
 	time(&_dateIn);
 	char timebuf[26];
