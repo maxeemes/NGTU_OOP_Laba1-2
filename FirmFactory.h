@@ -5,7 +5,7 @@ public:
 	FirmFactory();
 	~FirmFactory();
 
-	Firm Create(
+	Firm CreateFromMainFields(
 		string _name, 
 		list <string> flds, 
 		string _country = "Россия", 
@@ -16,6 +16,11 @@ public:
 		string _town = "", 
 		string _street = "", 
 		string _postInx = "");
-private:
+	Firm CreateFromClasses(
+		Firm _firmMainInfo,
+		map <string, string> _userFields,
+		list <SubFirm> _sbFirms
+	);
+	Firm CreateFromStructuredString(string _firm);
 };
 

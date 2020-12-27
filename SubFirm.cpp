@@ -52,6 +52,7 @@ SubFirm::SubFirm(string _name) : Name(_name), FirmTpy(SbFirmType())
 SubFirm::SubFirm(string _name, string _ofcBossName, string _bossName, string _email, string _tel, string _sbFirmType, bool _sbFirmIsMain) : 
 	Name(_name), 
 	OfcBossName(_ofcBossName), 
+	BossName(_bossName),
 	Email(_email), 
 	Tel(_tel), 
 	FirmTpy(SbFirmType(_sbFirmType, _sbFirmIsMain))

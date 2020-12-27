@@ -33,9 +33,9 @@ Firm::~Firm()
 bool Firm::AddField(string Name, string Value)
 {
 	auto search = _usrFields.find(Name);
-	if (search != _usrFields.end())
+	if (search == _usrFields.end())
 	{
-		_usrFields[Name] = "";
+		_usrFields[Name] = Value;
 		return true;
 	}
 	return false;
@@ -92,16 +92,29 @@ string Firm::GetMain()
 
 bool Firm::AddSbFirm(string _name, string _ofcBossName, string _bossName, string _email, string _tel, string _sbFirmType, bool _sbFirmIsMain)
 {
-	if (_name.length() > 0 && (SbFirms.empty() || GetSbFirm(_name) != SbFirms.end()))
+	if (_name.length() > 0)
 	{
 		SubFirm NewSbFirm = SubFirm(_name);
 		if (_ofcBossName.length() > 0 || _bossName.length() > 0 || _email.length() > 0 || _tel.length() || _sbFirmType != "Суб-фирма" || _sbFirmIsMain != false)
 		{
 			NewSbFirm = SubFirm(_name, _ofcBossName, _bossName, _email, _tel, _sbFirmType, _sbFirmIsMain);
 		}
-		if (_sbFirmIsMain) SbFirms.push_back(NewSbFirm);
-		else SbFirms.push_front(NewSbFirm);
-		return true;
+		
+		return AddSbFirm(NewSbFirm);
+	}
+	return false;
+}
+
+bool Firm::AddSbFirm(SubFirm _sbFirm)
+{
+	if (SbFirms.size() == 0 || &GetSbFirmIt(_sbFirm.Name) != &SbFirms.end())
+	{
+		if (_sbFirm.FirmTpy.IsMain == false || SbFirms.size() == 0 || (SbFirms.begin()->FirmTpy.IsMain == false))
+		{
+			if (_sbFirm.FirmTpy.IsMain) SbFirms.push_front(_sbFirm);
+			else SbFirms.push_back(_sbFirm);
+			return true;
+		}
 	}
 	return false;
 }
@@ -124,14 +137,24 @@ bool Firm::ExistContact(Contact _cont)
 
 bool Firm::AddContToSbFirm(string _sbFirmName, Contact _cont)
 {
-	auto SbFirmFromList = GetSbFirm(_sbFirmName);
+	auto SbFirmFromList = GetSbFirmIt(_sbFirmName);
 	if (SbFirmFromList != SbFirms.end()) {
 		if (SbFirmFromList->AddContact(_cont) == true) return false;
 	}
 	return false;
 }
 
-list<SubFirm>::iterator Firm::GetSbFirm(string _name)
+list<SubFirm> Firm::GetSbFirms()
+{
+	return SbFirms;
+}
+
+SubFirm Firm::GetSbFirm(string _name)
+{
+	return *GetSbFirmIt(_name);
+}
+
+list<SubFirm>::iterator Firm::GetSbFirmIt(string _name)
 {
 	for (list <SubFirm> ::iterator it = SbFirms.begin(); it != SbFirms.end(); it++) if (it->Name == _name) return it;
 	return SbFirms.end();

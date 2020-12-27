@@ -65,7 +65,71 @@ namespace TestLaba12
 		}
 		TEST_METHOD(TestSbFirmClass)
 		{
-			TestSubFirm = SubFirm(_name );
+			TestSubFirm = SubFirm(_name);
+		}
+
+		TEST_METHOD(TestFirmFactory)
+		{
+			//Пример строки: Имя_фирмы: Ромашка, Элетронная_почта: romashka@m.ru, Сайт: r.ru, Регион: Нижегородская область, Город: Нижний Новгород, Улица: "Горького, 1", Индекс: 603000, Страна: Россия, Дата_добавления: 01.12.2020, 
+			//Дополнительные_поля: [
+			//{Имя_поля: Направление, Значениие_поля: Консультационные услуги},
+			//{Имя_поля: Годовой оборот, Значениие_поля: Консультационные услуги},
+			//],
+			//Суб_фирмы: [
+			//	{Имя_суб-фирмы: Ромашка ритейл, Имя_начальника: Михаил Павлович, Имя_начальника_суб-фирмы: Иван Иванович, Элетронная_почта: romashka_ret@m.ru, Телефон: +7(800)603-09-30, Тип_суб-фирмы: Продажа продукции, Главная_суб-фирма: да},
+			//	{Имя_суб-фирмы: Ромашка продакт, Имя_начальника: Михаил Павлович, Имя_начальника_суб-фирмы: Григорий Иванович,								   Телефон: +7(800)603-09-31, Тип_суб-фирмы: Производство продукции, Главная_суб-фирма: нет}
+			//]
+			TestFirm = FirmFactory().CreateFromStructuredString(string()
+				+ "Имя_фирмы: Ромашка, "
+				+ "Элетронная_почта: romashka@m.ru, Сайт: r.ru," 
+				+ "Регион: Нижегородская область, Город: Нижний Новгород, Улица: \"Горького, 1\", Индекс: 603000, Страна: Россия, "
+				+ "Дата_добавления: 01.12.2020, "
+				+ "Дополнительные_поля: ["
+				+ "{Имя_поля: Направление, Значениие_поля: Консультационные услуги},"
+				+ "{Имя_поля: Годовой оборот, Значениие_поля: 5млн},"
+				+ "],"
+				+ "Суб_фирмы: ["
+				+ "	{Имя_суб-фирмы: Ромашка ритейл, "
+				+ "		Имя_начальника: Михаил Павлович, Имя_начальника_суб-фирмы: Иван Иванович, "
+				+ "		Элетронная_почта: romashka_ret@m.ru, Телефон: +7(800)603-09-30, "
+				+ "		Тип_суб-фирмы: Продажа продукции, Главная_суб-фирма: да},"
+				+ "	{Имя_суб-фирмы: Ромашка продакт, "
+				+ "		Имя_начальника: Михаил Павлович, Имя_начальника_суб-фирмы: Григорий Иванович," 
+				+ "		Телефон: +7(800)603-09-31, "
+				+ "		Тип_суб-фирмы: Производство продукции, Главная_суб-фирма: нет}"
+				+ "]");
+			Firm DefFirm = Firm();
+			//проверка основных полей
+			Assert::AreEqual(string("Ромашка"), TestFirm.Name);
+			Assert::AreEqual(string("romashka@m.ru"), TestFirm.Email);
+			Assert::AreEqual(string("r.ru"), TestFirm.Web);
+			Assert::AreEqual(string("Нижегородская область"), TestFirm.Region);
+			Assert::AreEqual(string("Нижний Новгород"), TestFirm.Town);
+			Assert::AreEqual(string("Горького, 1"), TestFirm.Street);
+			Assert::AreEqual(string("603000"), TestFirm.PostInx);
+			Assert::AreEqual(string("Россия"), TestFirm.Country);
+			Assert::AreEqual(string("01.12.2020"), TestFirm.DateIn);
+			//проверка дополнительных полей
+			Assert::AreEqual(string("Консультационные услуги"), TestFirm.GetField("Направление"));
+			Assert::AreEqual(string("5млн"), TestFirm.GetField("Годовой оборот"));
+			//проверка суб-фирм
+			SubFirm TestSbFrm = TestFirm.GetSbFirm("Ромашка ритейл");
+			Assert::AreEqual(string("Ромашка ритейл"), TestSbFrm.Name);
+			Assert::AreEqual(string("Михаил Павлович"), TestSbFrm.OfcBossName);
+			Assert::AreEqual(string("Иван Иванович"), TestSbFrm.BossName);
+			Assert::AreEqual(string("romashka_ret@m.ru"), TestSbFrm.Email);
+			Assert::AreEqual(string("+7(800)603-09-30"), TestSbFrm.Tel);
+			Assert::AreEqual(string("Продажа продукции"), TestSbFrm.FirmTpy.Name);
+			Assert::AreEqual(true, TestSbFrm.FirmTpy.IsMain);
+
+			TestSbFrm = TestFirm.GetSbFirm("Ромашка продакт");
+			Assert::AreEqual(string("Ромашка продакт"), TestSbFrm.Name);
+			Assert::AreEqual(string("Михаил Павлович"), TestSbFrm.OfcBossName);
+			Assert::AreEqual(string("Григорий Иванович"), TestSbFrm.BossName);
+			Assert::AreEqual(string(""), TestSbFrm.Email);
+			Assert::AreEqual(string("+7(800)603-09-31"), TestSbFrm.Tel);
+			Assert::AreEqual(string("Производство продукции"), TestSbFrm.FirmTpy.Name);
+			Assert::AreEqual(false, TestSbFrm.FirmTpy.IsMain);
 		}
 
 
