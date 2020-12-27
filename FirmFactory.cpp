@@ -56,17 +56,6 @@ Firm FirmFactory::CreateFromStructuredString(string _firm)
 	//	{Имя_суб-фирмы: Ромашка продакт, Имя_начальника: Михаил Павлович, Имя_начальника_суб-фирмы: Григорий Иванович,								   Телефон: +7(800)603-09-31, Тип_суб-фирмы: Производство продукции, Главная_суб-фирма: нет}
 	//]
 	//разбор основных полей фирмы
-	//string FName = GetSimpleField(_firm, "Имя_фирмы");
-	//string FCoutr = GetSimpleField(_firm, "Страна");
-	//string FDt = GetSimpleField(_firm, "Дата_добавления");
-	//string FEm = GetSimpleField(_firm, "Элетронная_почта");
-	//string Fweb = GetSimpleField(_firm, "Сайт");
-	//string FReg = GetSimpleField(_firm, "Регион");
-	//string FTow = GetSimpleField(_firm, "Город");
-	//string FStrt = GetSimpleField(_firm, "Улица");
-	//string FInx = GetSimpleField(_firm, "Индекс");
-
-
 	Firm NewFirm = Firm(
 		GetSimpleField(_firm, "Имя_фирмы"),
 		GetSimpleField(_firm, "Страна"),
@@ -78,7 +67,7 @@ Firm FirmFactory::CreateFromStructuredString(string _firm)
 		GetSimpleField(_firm, "Улица"),
 		GetSimpleField(_firm, "Индекс")
 	);
-	//раазбор дополнительных полей фирмы 
+	//разбор дополнительных полей фирмы 
 	//получение массива строк
 	list<string> AddFlds = GetArrayObjects(_firm, "Дополнительные_поля");
 	for (string AddFld : AddFlds)
